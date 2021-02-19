@@ -8,14 +8,13 @@ El objetivo de la práctica es realizar una pequeña aplicación, desarrollada e
 ## Definición de tipos de datos
 Este algoritmo se basa en el uso de una matriz donde las celdas contienen conjuntos de símbolos No terminales de la gramática. Estos símbolos son a su vez reconocidos por los símbolos No Terminales presentes en las celdas de niveles superiores. Si en la celda ubicada en el último nivel se encuentra el símbolo inicial de la gramática, quiere decir que a partir de ese símbolo se puede derivar toda la cadena de entrada y, por tanto, dicha cadena pertenece al lenguaje.
 
-
 <img src="images/tabla_cyk_ejemplo.PNG" width="600">
     
 Como se puede ver en este ejemplo de aplicación del algoritmo CYK, es necesario tener
 almacenada la gramática y la cadena de entrada. Ambas serán introducidas al programa a
 través de un fichero. El formato del fichero de gramática será el siguiente:
 
-(FOTO EJERCICIO 3.7)
+<img src="images/gramatica_ejemplo.PNG" width="500">
 
 Los símbolos No Terminales serán aquellos caracteres en mayúsculas, y los Terminales vendrán dados en minúsculas y entre los caracteres ‘<’ y ’>’.
 
@@ -34,30 +33,6 @@ La gramática será una lista de reglas, donde la primera regla será del símbo
 =TROZO CODIGO NO TERMINAL TERMINAL=
 
 Con estos nuevos alias, se define un nuevo tipo de dato Regla que contendrá la información necesaria de una regla de la gramática:
-
-= TROZO CODIGO FUNCION REGLA=
-
-Este tipo dato Regla puede hacer referencia a:
-- Una regla Terminal, en la que un símbolo No Terminal produce un símbolo Terminal: A ::= <a>.
-- Una regla No Terminal, en la que un símbolo No Terminal produce dos símbolos No Terminales: A ::= B C.
-- Una regla Nula, este será el tipo de regla empleado para las líneas en blanco de la gramática o aquellas reglas que tengan más de 2 símbolos en su parte derecha.
-
-Definido el dato regla, podemos establecer que una gramática será una lista de reglas, y una entrada, una lista de símbolos Terminales:
-
-= TROZO CODGIO GRAMATICA Y ENTREDA =
-
-Declarados los tipos de datos, es preciso tomar el contenido del fichero leído y adaptarlo para guardar los datos en las estructuras definidas:
-
-- Para el fichero de gramática, primero se dividirá el contenido en líneas, cada línea del fichero será un elemento candidato a ser regla. Estas líneas serán tratadas eliminando los posibles comentarios que puedan contener. Una vez eliminados, se trocea cada línea por las separaciones entre los símbolos (los espacios). Puede darse tres situaciones:
-    - Que haya 3 elementos, entonces con esa línea se creará una regla Terminal, donde el       símbolo No Terminal será el primer elemento, y el símbolo Terminal, el último (el           símbolo intermedio se corresponde al símbolo de producción de la regla ‘::=’ y es           ignorado).
-    - Que haya 4 elementos, entonces con esa línea se creará una regla No Terminal con el       primer elemento como símbolo No Terminal de la regla, y los dos últimos como símbolos       producidos.
-    - Que sea otro número de elementos, entonces se creará una regla Nula.
-- Para el fichero de cadena de entrada, se dividirá el contenido del fichero en líneas y cada línea será un símbolo Terminal. Previamente se eliminan los posibles espacios que pudiera haber en cada línea.
- 
-Por último, para poder aplicar el algoritmo, se definen los tipos necesarios para el uso de la tabla. Se considerará que una celda de la tabla será una lista de símbolos No Terminales, y, como se mencionó antes, las celdas de la tabla se encuentran por niveles. Estos niveles serán las diagonales de la tabla, siendo el nivel superior la diagonal con una única celda:
-
-= TROZO CODIGO, CELDA Y DIAGONAL =
-
 
 
 ## Implementación en Prolog
