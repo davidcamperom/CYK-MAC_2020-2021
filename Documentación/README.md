@@ -9,7 +9,7 @@ El objetivo de la práctica es realizar una pequeña aplicación, desarrollada e
 Este algoritmo se basa en el uso de una matriz donde las celdas contienen conjuntos de símbolos No terminales de la gramática. Estos símbolos son a su vez reconocidos por los símbolos No Terminales presentes en las celdas de niveles superiores. Si en la celda ubicada en el último nivel se encuentra el símbolo inicial de la gramática, quiere decir que a partir de ese símbolo se puede derivar toda la cadena de entrada y, por tanto, dicha cadena pertenece al lenguaje.
 
 
-<img src="images/tabla_cyk.PNG" width="900">
+<img src="images/tabla_cyk.PNG" width="200">
     
 Incluso hay que mencionar que conseguimos corregir un fallo que venía en el repositorio en el que nos estábamos basando. Como queríamos aportar un pequeño toque de originalidad y diferencia, decidimos traducirlo al español, que siempre es más cómodo para quien esté buscando información y no quiera perder tiempo con los pequeños atrasos que pueda hacer el trabajar con una lengua extranjera.
 
