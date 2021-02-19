@@ -100,15 +100,5 @@ No sabemos si retomaremos este proyecto, pero hemos querido compartir nuestro de
 ¿Algún día...?
 
 ## Bibliografía
-[1. GitHub Sistema Experto](https://github.com/linkyndy/expert-systems)  
-[2. Metalevel Prolog](https://www.metalevel.at/prolog/expertsystems)  
-[3. Cómo crear tu primera Skill en Alexa](https://www.youtube.com/watch?v=LAN-BJs6zrw)  
-[4. Playing with Prolog](https://www.youtube.com/watch?v=ScrEe1vsPug&feature=emb_title)  
-[5. GitHub Quiz](https://github.com/alexa/skill-sample-nodejs-quiz-game)  
-[6. Llamar a Prolog desde PHP y tener un sistema experto en la web](https://www.youtube.com/watch?v=3sUj523cfPE)  
-[7. GitHub Checkers Game Prolog y PHP](https://github.com/codermapuche/PHP-Prolog-HTML5-Checkers-Game)  
-[8. Lista de reproducción cómo hacer una skill desde cero](https://www.youtube.com/watch?v=qv7ULb0TCN8&list=PL2KJmkHeYQTNzra-T2ayhV_84dHYCShAQ)  
-[9. Prolog web FrameWork](https://www.youtube.com/watch?v=0fyE8Fuj3sg&list=PLo2Yjnxu38Q8VI6WVFLlTQOZ9LH9M4wyk)  
-[10. Swi-Prolog](https://www.swi-prolog.org/)  
-[11. NoIp.com](https://www.noip.com/)  
-[12. Amazon Developers](https://developer.amazon.com/es/)
+[1. Temario Modelos Avanzados de Computación](http://www.uhu.es/francisco.moreno/gii_mac/)  
+
