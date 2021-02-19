@@ -170,6 +170,21 @@ La función que realiza la comprobación final es la siguiente:
 Recibe la gramática y la tabla generada, extrae el símbolo inicial de la gramática, accede a la última diagonal de la tabla y comprueba si el símbolo inicial se encuentra en la celda seleccionada.
 
 ## Visualización de los resultados
+Con objetivo de poder analizar mejor el proceso seguido por el algoritmo implementado, se realizaron las siguientes funciones para poder representar gráficamente la tabla generada tal y como se muestra en los ejercicios realizados en clase.
+
+Mediante las funciones:
+
+= trozo codigo =
+
+Se realiza la transformación de la tabla de estar representada como una lista de diagonales a estar representada como una lista de filas con las celdas de la tabla. Al representarse como una lista de filas, no se utiliza el alias Diagonal para hacer referencia a [Celda], para evitar confusiones.
+
+Y mediante las siguientes funciones impuras, se realiza la visualización por pantalla de una forma básica la tabla generada:
+
+= trozo codigo =
+
+La forma de realizar la separación entre las columnas es muy básica. El tamaño máximo que ocupará una columna será de 14 caracteres, incluyéndose la celda de la columna y el espaciado hasta la siguiente columna. Esto hace que visualmente se vea bien sólo si no hay más de tres símbolos No Terminales por casilla y ningún símbolo No Terminal está formado por más de un carácter.
+
+## Ejemplos de ejecución
 
 
 <p align="center">
