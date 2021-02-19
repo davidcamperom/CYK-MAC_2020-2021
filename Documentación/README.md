@@ -22,7 +22,7 @@ Cada línea será una regla de la gramática, y el fichero puede contener coment
 
 El formato del fichero donde venga definida la cadena de entrada es más simple:
 
-(FOTO CADENA ENTRADA)
+<img src="images/cadena_entrada.PNG" width="500">
 
 Cada línea del fichero corresponde a un símbolo Terminal de la gramática. Todas las líneas del fichero forman la cadena de entrada.
 
