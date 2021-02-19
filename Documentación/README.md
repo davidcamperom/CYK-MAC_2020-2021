@@ -63,12 +63,12 @@ Como se mencionó antes, el algoritmo CYK trabaja por niveles, donde en cada niv
 
 Para la gramática:
 
-(Foto de la gramatica)
+<img src="images/gramatica_ejemplo2.PNG" width="500">
 
 Con la cadena de entrada: ( id ( id ( num ) ) ( id ) )
 Se obtiene la siguiente tabla:
 
-(Foto de la cadena)
+<img src="images/tabla_ejercicio.PNG" width="500">
 
 Se pueden diferenciar dos tipos de diagonales:
 - Primera diagonal: en ella aparecen los símbolos No Terminales de la gramática que tienen una regla con la que pueden producir el símbolo Terminal de la entrada que se encuentra al inicio de la columna.
@@ -80,7 +80,7 @@ Como se verá a continuación, la forma de obtener estas diagonales es diferente
 ### Creación de la primera diagonal
 Para la primera diagonal, dado que tiene el mismo número de elementos que símbolos Terminales hay en la cadena de entrada, se creará usando únicamente dicha información, además del uso de la Gramática para saber qué reglas se aplican.
 
-(Foto primera diagonal)
+<img src="images/tabla_primera_diagonal.PNG" width="500">
 
 Para esto, se han implementado dos funciones:
 
@@ -93,7 +93,7 @@ La segunda función realizará llamadas a la función anterior, profundizando de
 ### Creación de las diagonales intermedias
 Una vez creada la primera diagonal, se procede a la creación de todas las diagonales internas. El motivo por el que es necesario crear la primera diagonal antes es que estas diagonales intermedias requieren conocer los símbolos No Terminales presentes en las diagonales inferiores, puesto que los símbolos No Terminales que van a obtenerse serán aquellos que reconozcan los ya presentes.
 
-(Foto diagonal intermedia)
+<img src="images/tabla_diagonal_intermedia.PNG" width="500">
 
 A partir de los datos obtenidos de las diagonales anteriores, se comienza a crear la siguiente diagonal. Recursivamente, se profundiza en la diagonal nueva, hasta llegar al extremo inferior. Desde ahí, se construye la nueva diagonal, añadiendo en cada llamada recursiva una nueva celda a la diagonal, por tanto, la diagonal crece de abajo hacia arriba.
 
@@ -153,7 +153,7 @@ Finalmente, obtenida la tabla mediante la creación de sus diagonales, es moment
 
 Si el símbolo inicial se encuentra ahí, significa que desde ese símbolo se puede derivar toda la cadena de entrada y, por tanto, dicha cadena pertenece al lenguaje.
 
-(imagen tabla)
+<img src="images/tabla_final.PNG" width="500">
 
 El símbolo inicial de la gramática será aquel que se encuentre en la primera regla de la gramática, en este caso, será el símbolo S, por la regla: S → num.
 
