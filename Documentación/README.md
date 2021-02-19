@@ -13,7 +13,7 @@ Este algoritmo se basa en el uso de una matriz donde las celdas contienen conjun
 Como se puede ver en este ejemplo de aplicación del algoritmo CYK, es necesario tener almacenada la gramática y la cadena de entrada. Ambas serán introducidas al programa a
 través de un fichero. El formato del fichero de gramática será el siguiente:
 
-
+<img src="images/gramatica_ejemplo.PNG" width="500">
 
 ## Implementación en Prolog
 Para quien no esté familiarizado con este lenguaje de programación declarativo, vamos a explicar los pasos que hemos seguido para realizar la implementación.
