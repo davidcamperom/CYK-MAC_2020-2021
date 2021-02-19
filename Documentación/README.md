@@ -185,7 +185,17 @@ Y mediante las siguientes funciones impuras, se realiza la visualización por pa
 La forma de realizar la separación entre las columnas es muy básica. El tamaño máximo que ocupará una columna será de 14 caracteres, incluyéndose la celda de la columna y el espaciado hasta la siguiente columna. Esto hace que visualmente se vea bien sólo si no hay más de tres símbolos No Terminales por casilla y ningún símbolo No Terminal está formado por más de un carácter.
 
 ## Ejemplos de ejecución
+A continuación, se mostrará una serie de pruebas de ejecución realizadas con diferentes gramáticas y cadenas de entrada.
 
+Las visualizaciones de las tablas obtenidas han sido recortadas
+
+Gramática: Ficheros usados: Gramática.cfg y Entrada.txt
+
+(VARIAS FOTOS DE LOS EJEMPLOS QUE SE QUIERAN PONER)
+
+Junto al código fuente se incluyen las gramáticas y cadenas de entrada utilizadas en los ejemplos, junto a otras gramáticas.
+
+(BORRAR TODO LO DE ABAJO CUANDO SE TERMINE DE EDITAR)
 
 <p align="center">
 <img src="imagenes/LogicaProposicional.jpg" width="300">
