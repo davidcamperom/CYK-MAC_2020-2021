@@ -187,11 +187,14 @@ La forma de realizar la separación entre las columnas es muy básica. El tamañ
 ## Ejemplos de ejecución
 A continuación, se mostrará una serie de pruebas de ejecución realizadas con diferentes gramáticas y cadenas de entrada.
 
-Las visualizaciones de las tablas obtenidas han sido recortadas
+Las visualizaciones de las tablas obtenidas han sido recortadas.
+
+### Ejemplo 1
 
 Gramática: Ficheros usados: Gramática.cfg y Entrada.txt
 
-(VARIAS FOTOS DE LOS EJEMPLOS QUE SE QUIERAN PONER)
+<img src="imagenes/LogicaProposicional.jpg" width="300">
+<img src="imagenes/LogicaProposicional.jpg" width="300">
 
 Junto al código fuente se incluyen las gramáticas y cadenas de entrada utilizadas en los ejemplos, junto a otras gramáticas.
 
