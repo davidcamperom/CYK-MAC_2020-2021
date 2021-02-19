@@ -1,3 +1,3 @@
-#   Trabajo Práctico de Representación del Conocimiento  
+#   Trabajo Práctico de Modelos Avanzados de Computación  
 :school: Universidad de Huelva  
-:books: Curso 2019-2020    
+:books: Curso 2020-2021    
