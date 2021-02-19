@@ -153,7 +153,7 @@ Finalmente, obtenida la tabla mediante la creación de sus diagonales, es moment
 
 Si el símbolo inicial se encuentra ahí, significa que desde ese símbolo se puede derivar toda la cadena de entrada y, por tanto, dicha cadena pertenece al lenguaje.
 
-(iamgen tabla)
+(imagen tabla)
 
 El símbolo inicial de la gramática será aquel que se encuentre en la primera regla de la gramática, en este caso, será el símbolo S, por la regla: S → num.
 
