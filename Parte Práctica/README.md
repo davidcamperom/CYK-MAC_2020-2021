@@ -3,15 +3,10 @@
 :books: Curso 2020-2021    
 
 ##  Intención de la práctica
-Con el desarrollo de esta práctica, pretendemos realizar un sistema experto implementado en el lenguaje declarativo PROLOG, una vez creado el sistema y sea totalmente funcional, desarrollaremos una skill de Alexa, la cual hará de mediadora entre el usuario y nuestro sistema. Alexa leerá las opciones del sistema y reconocerá la voz del usuario que dirá con su voz dirá la opción que desee, Alexa "dirá" internamente a prolog qué opción ha sido la seleccionada y la ejecutará para que nos devuelva otra salida.
+El objetivo de la práctica es realizar una pequeña aplicación, desarrollada en Haskell, la cual ponga en funcionamiento el algoritmo Cocke-Younger-Kasami usado para verificar si una cadena de entrada pertenece al lenguaje descrito por una gramática dada, en este caso, expresada en Forma Normal de Chomsky.
 
-Como sistema experto nos vamos a basar en un GitHub que hemos encontrado, pese a que contenía errores, nos hemos dispuesto a corregirlos, incluso pretendemos traducirlo, ya que apenas hemos encontrado información en español, aunque sabemos que es importante el uso de idiomas, queríamos que exista información en español, para que quien quiera realizar una práctica similar, no tenga que dedicar tiempo en entender el idioma y pueda centrarse al completo en el desarrollo.
-
-
-## Diseño del Sistema Experto en Prolog
-Para la implementación del sistema experto, hicimos uso del lenguaje declarativo "Prolog", pese a que en la asignatura nos enseñan a programar en este lenguaje, tuvimos que buscar información por otros medios, ya que los conocimientos que necesitamos iban un poco más allá del objetivo de la asignatura, teníamos entre manos un proyecto en cierta medida ambicioso.
-
-Nos hemos basado casi por completo en este repositorio(1). Es muy recomendable, ya que nos sirvió para aprender cómo hacer un sistema experto en condiciones. En la página metalevel(2) pudimos hacernos una idea de qué camino tomar, por así decirlo existen 3 tipos de implementaciones y en función de lo que busquemos nos sirve más una u otra. Realmente no nos decantamos por uno en concreto, si no que hicimos una especie de mezcla que una vez acabado, no sabemos muy bien en qué categoría meter. Nos creamos una especie de árbol de decisión para tener más claro los caminos que estábamos generando y también para facilitar la fase de testeo, en la que encontramos bastantes fallos que nos habíamos dejado por el camino.
+## Definición de tipos de datos
+Este algoritmo se basa en el uso de una matriz donde las celdas contienen conjuntos de símbolos No terminales de la gramática. Estos símbolos son a su vez reconocidos por los símbolos No Terminales presentes en las celdas de niveles superiores. Si en la celda ubicada en el último nivel se encuentra el símbolo inicial de la gramática, quiere decir que a partir de ese símbolo se puede derivar toda la cadena de entrada y, por tanto, dicha cadena pertenece al lenguaje.
 
 
 <img src="imagenes/Arbol.png" width="900">
