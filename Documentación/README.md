@@ -8,10 +8,12 @@ El objetivo de la práctica es realizar una pequeña aplicación, desarrollada e
 ## Definición de tipos de datos
 Este algoritmo se basa en el uso de una matriz donde las celdas contienen conjuntos de símbolos No terminales de la gramática. Estos símbolos son a su vez reconocidos por los símbolos No Terminales presentes en las celdas de niveles superiores. Si en la celda ubicada en el último nivel se encuentra el símbolo inicial de la gramática, quiere decir que a partir de ese símbolo se puede derivar toda la cadena de entrada y, por tanto, dicha cadena pertenece al lenguaje.
 
-
 <img src="images/tabla_cyk_ejemplo.PNG" width="600">
     
-Incluso hay que mencionar que conseguimos corregir un fallo que venía en el repositorio en el que nos estábamos basando. Como queríamos aportar un pequeño toque de originalidad y diferencia, decidimos traducirlo al español, que siempre es más cómodo para quien esté buscando información y no quiera perder tiempo con los pequeños atrasos que pueda hacer el trabajar con una lengua extranjera.
+Como se puede ver en este ejemplo de aplicación del algoritmo CYK, es necesario tener almacenada la gramática y la cadena de entrada. Ambas serán introducidas al programa a
+través de un fichero. El formato del fichero de gramática será el siguiente:
+
+
 
 ## Implementación en Prolog
 Para quien no esté familiarizado con este lenguaje de programación declarativo, vamos a explicar los pasos que hemos seguido para realizar la implementación.
