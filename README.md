@@ -1,2 +1,4 @@
-# Proyecto Prácticas MAC 2020-2021
-Proyecto de la asignatura Modelos Avanzados de Computación
+# Algoritmo Cocke-Younger-Kasami
+:computer: Proyecto Teórico/Práctico para la asignatura Modelos Avanzados de Computación
+:school: Universidad de Huelva
+:books: Curso 2020-2021
