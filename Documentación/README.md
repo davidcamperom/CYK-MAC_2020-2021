@@ -8,12 +8,33 @@ El objetivo de la práctica es realizar una pequeña aplicación, desarrollada e
 ## Definición de tipos de datos
 Este algoritmo se basa en el uso de una matriz donde las celdas contienen conjuntos de símbolos No terminales de la gramática. Estos símbolos son a su vez reconocidos por los símbolos No Terminales presentes en las celdas de niveles superiores. Si en la celda ubicada en el último nivel se encuentra el símbolo inicial de la gramática, quiere decir que a partir de ese símbolo se puede derivar toda la cadena de entrada y, por tanto, dicha cadena pertenece al lenguaje.
 
+
 <img src="images/tabla_cyk_ejemplo.PNG" width="600">
     
-Como se puede ver en este ejemplo de aplicación del algoritmo CYK, es necesario tener almacenada la gramática y la cadena de entrada. Ambas serán introducidas al programa a
+Como se puede ver en este ejemplo de aplicación del algoritmo CYK, es necesario tener
+almacenada la gramática y la cadena de entrada. Ambas serán introducidas al programa a
 través de un fichero. El formato del fichero de gramática será el siguiente:
 
-<img src="images/gramatica_ejemplo.PNG" width="500">
+(FOTO EJERCICIO 3.7)
+
+Los símbolos No Terminales serán aquellos caracteres en mayúsculas, y los Terminales vendrán dados en minúsculas y entre los caracteres ‘<’ y ’>’.
+
+Cada línea será una regla de la gramática, y el fichero puede contener comentarios que comenzarán por el carácter ‘#’. Estos comentarios no serán tomados en cuenta al leerse el fichero.
+
+El formato del fichero donde venga definida la cadena de entrada es más simple:
+
+(FOTO CADENA ENTRADA)
+
+Cada línea del fichero corresponde a un símbolo Terminal de la gramática. Todas las líneas del fichero forman la cadena de entrada.
+
+Una vez leídos ambos ficheros, hay que establecer cómo serán tratados para guardar su información y así poder usarla.
+
+La gramática será una lista de reglas, donde la primera regla será del símbolo inicial de la gramática. En estas reglas estarán presentes los símbolos No Terminales y Terminales de la gramática, los cuáles serán representados como cadenas de caracteres, identificados con alias de String:
+
+=TROZO CODIGO NO TERMINAL TERMINAL=
+
+Con estos nuevos alias, se define un nuevo tipo de dato Regla que contendrá la información necesaria de una regla de la gramática:
+
 
 ## Implementación en Prolog
 Para quien no esté familiarizado con este lenguaje de programación declarativo, vamos a explicar los pasos que hemos seguido para realizar la implementación.
