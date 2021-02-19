@@ -193,36 +193,36 @@ Las visualizaciones de las tablas obtenidas han sido recortadas.
 
 Gramática: Ficheros usados: Gramática.cfg y Entrada.txt
 
-<img src="images/gramatica_ejercicio_1.jpg" width="500">
-<img src="images/resultados_ejercicio_1.jpg" width="500">
+<img src="images/gramatica_ejercicio_1.JPG" width="500">
+<img src="images/resultados_ejercicio_1.JPG" width="500">
 
 ### Ejemplo 2
 
 Gramática: Ficheros usados: Gramática.cfg y Entrada.txt
 
-<img src="images/gramatica_ejercicio_2.jpg" width="500">
-<img src="images/resultados_ejercicio_2.jpg" width="500">
+<img src="images/gramatica_ejercicio_2.JPG" width="500">
+<img src="images/resultados_ejercicio_2.JPG" width="500">
 
 ### Ejemplo 3
 
 Gramática: Ficheros usados: Gramática.cfg y Entrada.txt
 
-<img src="images/gramatica_ejercicio_3.jpg" width="500">
-<img src="images/resultados_ejercicio_3.jpg" width="500">
+<img src="images/gramatica_ejercicio_3.JPG" width="500">
+<img src="images/resultados_ejercicio_3.JPG" width="500">
 
 ### Ejemplo 4
 
 Gramática: Ficheros usados: Gramática.cfg y Entrada.txt
 
-<img src="images/gramatica_ejercicio_4.jpg" width="500">
-<img src="images/resultados_ejercicio_4.jpg" width="500">
+<img src="images/gramatica_ejercicio_4.JPG" width="500">
+<img src="images/resultados_ejercicio_4.JPG" width="500">
 
 ### Ejemplo 5
 
 Gramática: Ficheros usados: Gramática.cfg y Entrada.txt
 
-<img src="images/gramatica_ejercicio_5.jpg" width="500">
-<img src="images/resultados_ejercicio_5.jpg" width="500">
+<img src="images/gramatica_ejercicio_5.JPG" width="500">
+<img src="images/resultados_ejercicio_5.JPG" width="500">
 
 Junto al código fuente se incluyen las gramáticas y cadenas de entrada utilizadas en los ejemplos, junto a otras gramáticas.
 
