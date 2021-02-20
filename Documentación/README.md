@@ -30,11 +30,19 @@ Una vez leídos ambos ficheros, hay que establecer cómo serán tratados para gu
 
 La gramática será una lista de reglas, donde la primera regla será del símbolo inicial de la gramática. En estas reglas estarán presentes los símbolos No Terminales y Terminales de la gramática, los cuáles serán representados como cadenas de caracteres, identificados con alias de String:
 
-=TROZO CODIGO NO TERMINAL TERMINAL=
+```
+type NoTerminal = String
+type Terminal = String
+```
 
 Con estos nuevos alias, se define un nuevo tipo de dato Regla que contendrá la información necesaria de una regla de la gramática:
 
-= TROZO CODIGO REGLA =
+```
+data Regla = ReglaN NoTerminal NoTerminal NoTerminal
+            | ReglaT NoTerminal Terminal
+            | ReglaNula
+            deriving (Eq, Show)
+```
 
 Este tipo dato Regla puede hacer referencia a:
 - Una regla Terminal, en la que un símbolo No Terminal produce un símbolo Terminal: A ::= <a>.
@@ -43,7 +51,10 @@ Este tipo dato Regla puede hacer referencia a:
 
 Definido el dato regla, podemos establecer que una gramática será una lista de reglas, y una entrada, una lista de símbolos Terminales:
 
-= Trozo codigo gramatica entrada =
+```
+type Gramatica = [Regla]
+type Entrada = [Terminal]
+```
 
 Declarados los tipos de datos, es preciso tomar el contenido del fichero leído y adaptarlo para guardar los datos en las estructuras definidas:
 - Para el fichero de gramática, primero se dividirá el contenido en líneas, cada línea del fichero será un elemento candidato a ser regla. Estas líneas serán tratadas eliminando los posibles comentarios que puedan contener. Una vez eliminados, se trocea cada línea por las separaciones entre los símbolos (los espacios). Puede darse tres situaciones:
@@ -54,7 +65,10 @@ Declarados los tipos de datos, es preciso tomar el contenido del fichero leído 
 
 Por último, para poder aplicar el algoritmo, se definen los tipos necesarios para el uso de la tabla. Se considerará que una celda de la tabla será una lista de símbolos No Terminales, y, como se mencionó antes, las celdas de la tabla se encuentran por niveles. Estos niveles serán las diagonales de la tabla, siendo el nivel superior la diagonal con una única celda:
 
-= trozo codigo celda diagonal =
+```
+type Celda = [NoTerminal]
+type Diagonal = [Celda]
+```
 
 ## Implementación del algoritmo
 Una vez definidas las estructuras donde se almacenará la información correspondiente a la gramática y a la cadena de entrada y cargados ambos desde sus respectivos ficheros, es momento de comenzar el análisis de la cadena para verificar si pertenece al lenguaje definido por la gramática o no.
@@ -84,7 +98,10 @@ Para la primera diagonal, dado que tiene el mismo número de elementos que símb
 
 Para esto, se han implementado dos funciones:
 
-= trozo codigo funcion =
+```
+- reglasReconoceTerminal :: Terminal -> Gramatica -> Celda
+- rellenaPrimeraDiagonal :: Entrada -> Gramatica -> Diagonal
+```
 
 La primera de ellas, a partir de un símbolo Terminal, devuelve una lista de todos los símbolos No Terminales de la gramática que tengan una regla que produzcan dicho Terminal. Esta lista de No Terminales forma una celda de la tabla.
 
@@ -99,19 +116,28 @@ A partir de los datos obtenidos de las diagonales anteriores, se comienza a crea
 
 Como se puede apreciar, al momento de crearse una nueva celda, se deben de tomar de las diagonales anteriores una serie de celdas, las que se encuentran en la misma fila, y las que se encuentran en la misma columna. Para ello, se han implementado las siguientes funciones, que trabajan con un índice dado, que se corresponde con la posición que la celda va a tener en la nueva diagonal:
 
-= trozo codigo =
+```
+- fila :: [Diagonal] -> Int -> [Celda]
+- columna :: [Diagonal] -> Int -> [Celda]
+```
 
 Con ambas listas de celdas, se procede a tomar las celdas de dos en dos, para ver qué No Terminales producen los símbolos de estas celdas. Se comprobarán las celdas en este orden:
 
-= trozo codigo =
+- {L} con {-} → Primera de la fila con primera de la columna
+- {-} con {-} → Segunda con segunda
+- {S, B} con {R} → Tercera con tercera
 
 La forma de realizar esta comprobación es mediante la siguiente función:
 
-= trozo codigo =
+```
+ recorreParesDeCeldas :: [Celda] -> [Celda] -> Gramatica -> Celda
+```
 
 Esta función recibe ambas listas y devuelve la nueva celda. Internamente, llama a la siguiente función, que será la que realice la comparación celda a celda:
 
-= Trozo codigo =
+```
+reglasReconoceDosCasillas :: Celda -> Celda -> Gramatica -> Celda
+```
 
 Esta función recibe dos celdas, una de cada lista, y devuelve una celda con los posibles símbolos No Terminales que pueden reconocer los símbolos de las celdas.
 
@@ -121,29 +147,39 @@ Internamente, toma uno a uno (por recursión) los símbolos No Terminales de la 
 
 Esta comprobación se realiza de forma similar a la de obtener los símbolos No Terminales que producen los símbolos Terminales, mediante la siguiente función:
 
-= trozo codigo =
+```
+reglasReconoceParNoTerminal :: NoTerminal -> NoTerminal -> Gramatica -> Celda
+```
 
 Esta función recibe dos símbolos No Terminales, el primero será de una celda situada en la misma fila, y el segundo será de la celda situada en la columna. Devolverá los símbolos No Terminales que produzcan a ambos, en el orden presentados a la función (primero el símbolo de la celda en la misma fila, y luego el símbolo de la celda de la misma columna).
 
 La forma de realizar el recorrido de esta nueva diagonal es mediante la siguiente función:
 
-= trozo codigo =
+```
+recorreDiagonal :: [Diagonal] -> Int -> Gramatica -> Diagonal
+```
 
 Esta función recibe todas las diagonales ya creadas y un número que significa el índice de la casilla que va a crear y que luego unirá al resto de casillas generadas por recursión. Recibirá como valor inicial de índice, el 0, dado por la función:
 
-= trozo codigo =
+```
+creaDiagonal :: [Diagonal] -> Gramatica -> Diagonal
+```
 
 Esta función se encarga de iniciar la recursión de la función anterior, llamándola con 0 como primer índice. Devuelve la diagonal generada por la función recursiva anterior.
 
 Por último, para crearse la tabla, se utiliza la función:
 
-= trozo codigo =
+```
+creaDiagonales :: [Diagonal] -> Gramatica -> [Diagonal]
+```
 
 Esta función recibe la lista de las diagonales ya creadas, las diagonales inferiores, y devuelve una lista de diagonales compuesta por las que ha recibido más la nueva diagonal que acaba de crear. Esto se realizará de forma recursiva hasta que no pueda haber diagonales superiores, es decir, cuando se haya creado la última diagonal de longitud 1. En ese momento, habrá finalizado la creación de la tabla del algoritmo CYK.
 
 Cabe destacar que, como puede verse en la definición de la función, recibe siempre una lista de las diagonales ya creadas. Como se mencionó antes, la primera diagonal se crea de forma diferente a las demás, por tanto, en la primera llamada recursiva, la lista de diagonales que recibirá será una lista formada por una única diagonal, que se corresponderá a la primera diagonal de la tabla. Esto se realiza en la función:
 
-= trozo codigo =
+```
+algoritmoCYK_CreaTabla :: Gramatica -> Entrada -> [Diagonal]
+```
 
 Esta función recibe la gramática y la cadena de entrada, genera la primera diagonal de la tabla a partir de estos datos, y se la pasa a la función previa junto con la gramática que recibe. Finalmente devuelve la tabla completa.
 
@@ -159,13 +195,23 @@ El símbolo inicial de la gramática será aquel que se encuentre en la primera 
 
 La forma de obtener dicho símbolo en el código es mediante la siguiente función:
 
-= trozo codigo =
+```
+primerSimbolo :: Gramatica -> NoTerminal
+```
 
 Que toma la primera regla de la gramática, sea Terminal o No Terminal, y devuelve el símbolo que aparezca en ella.
 
 La función que realiza la comprobación final es la siguiente:
 
-= trozo codigo = 
+```
+ algoritmoCYK :: Gramatica -> [Diagonal] -> Resultado
+ algoritmoCYK g tabla =
+    let sInicial = primerSimbolo g
+        n = (length tabla) - 1
+    in case elem sInicial ((tabla !! n) !! 0) of True -> Correcta
+                                                 False -> Incorrecta
+
+```
 
 Recibe la gramática y la tabla generada, extrae el símbolo inicial de la gramática, accede a la última diagonal de la tabla y comprueba si el símbolo inicial se encuentra en la celda seleccionada.
 
@@ -174,13 +220,20 @@ Con objetivo de poder analizar mejor el proceso seguido por el algoritmo impleme
 
 Mediante las funciones:
 
-= trozo codigo =
+```
+- creaFila :: [Diagonal] -> Int -> [Celda]
+- creaFilas :: [Diagonal] -> Int -> [[Celda]]
+- organizaTabla :: [Diagonal] -> [[Celda]]
+```
 
 Se realiza la transformación de la tabla de estar representada como una lista de diagonales a estar representada como una lista de filas con las celdas de la tabla. Al representarse como una lista de filas, no se utiliza el alias Diagonal para hacer referencia a [Celda], para evitar confusiones.
 
 Y mediante las siguientes funciones impuras, se realiza la visualización por pantalla de una forma básica la tabla generada:
 
-= trozo codigo =
+```
+- verFila :: [Celda] -> IO()
+- verTabla :: [[Celda]] -> Int -> IO()
+```
 
 La forma de realizar la separación entre las columnas es muy básica. El tamaño máximo que ocupará una columna será de 14 caracteres, incluyéndose la celda de la columna y el espaciado hasta la siguiente columna. Esto hace que visualmente se vea bien sólo si no hay más de tres símbolos No Terminales por casilla y ningún símbolo No Terminal está formado por más de un carácter.
 
@@ -225,64 +278,6 @@ Gramática: Ficheros usados: Gramática.cfg y Entrada.txt
 <img src="images/resultados_ejercicio_5.PNG" width="500">
 
 Junto al código fuente se incluyen las gramáticas y cadenas de entrada utilizadas en los ejemplos, junto a otras gramáticas.
-
-(BORRAR TODO LO DE ABAJO CUANDO SE TERMINE DE EDITAR)
-
-<p align="center">
-<img src="imagenes/LogicaProposicional.jpg" width="300">
-   
-Donde vemos una serie de hechos relacionados con una serie de reglas y a partir de las distintas relaciones entre ellos podemos obtener conclusiones a nuestro problema. Prolog se basa en esta forma de "pensamiento", introducimos hechos o predicados y mediante una serie de relaciones nos dice si son verdaderas o falsas. Como estamos comprobando precisamente si dos o varios hechos tienen relación, no decimos que ejecutamos nuestro script, decimos que lo consultamos, por ello el último paso que realizaremos será clicar en la opción "Consult" de Swi-Prolog.
-
-#### Predicados usados en el código
-Inicialmente mostraremos por pantalla el mensaje con la pregunta inicial y una pequeña instrucción de cómo manejar el sistema experto.
-```
-inicio :-
-    introduccion,
-    reset_respuestas,
-    busca_lenguaje(Lenguaje),
-    describe(Lenguaje), nl.
-```
-El sistema irá mostrando las distintas opciones y un índice que hemos calculado para que el usuario solo escriba dicho número y el sistema internamente lo gestione. En cada "turno" se le hará una pregunta y se buscará el lenguaje que cumpla las condiciones, estas condiciones sabremos si se cumplen ya que vamos guardando las respuestas del usuario, en cierta forma es como ir descartando ramas del árbol que veíamos más arriba.
-```
-ask(Pregunta, Respuesta, Opciones) :-
-    pregunta(Pregunta),
-    respuestas(Opciones, 0),
-    read(Index),
-    parse(Index, Opciones, Solucion),
-    asserta(progress(Pregunta, Solucion)),
-    Solucion = Respuesta.
-```
-Cuando el sistema encuentra un código que cumpla todas las condiciones, lo muestra como solución y escribe en pantalla una descripción del lenguaje. Lo podemos ver más claro en la siguiente captura del programa:
-<p align="center">
-<img src="imagenes/Ejecucion.jpg" width="500">
-   
-## Diseño en Alexa
-La siguiente fase en nuestro proyecto era integrar todo lo realizado hasta ahora en Alexa, lo cual nos trajo muchos quebraderos de cabeza. En cuanto a cómo integrar una API de prolog en Alexa, apenas existe información, por lo decir que no la hay. Encontramos una especie de tutorial donde un hombre realizada skill de Alexa la cual guardaba los facts que el hombre le decía y Alexa era capaz de memorizarlos, más tarde se le decía una relación entre estos facts y Alexa traducía todo a lenguaje Prolog, a partir de un parser de JSON a Prolog, y las relaciones funcionaban en prolog, el resultado era procesado y parseado a JSON y devuelto a Alexa con éxito.
-
-Tras todo este embrollo, el resultado era una skill que entendía el lenguaje natural y era capaz de relacionar hechos y reglas, con back-end implementado en JSON y parseado a Prolog. En cierta medida era lo que buscábamos, pero nos quedamos a las puertas de implementar este back-end.
-
-Uno de nuestro principales problemas era que necesitábamos crear un dominio propio, el cual Alexa usara como endpoint y al cual pudiera conectarse para hacer el intercambio de datos. Creamos uno en la página noip.com(11), y abrir un puerto por el cual poder establecer la conexión, lo cual no parecía difícil, pero desconocemos la causa por la que esto no funcionaba. Así que llegamos a un punto muerto en el desarrollo del proyecto.
-
-<p align="center">
-<img src="imagenes/FalloSkill.jpg" width="1000">
-
-Decidimos informarnos de cómo funciona la web donde se desarrolla una skill de Alexa y que lenguajes deberíamos de dominar, por suerte para algunos, la web ha sufrido varias actualizaciones y actualmente se ha integrado en una sola web tonta el front-end, como el back-end. En principio el front-end funciona en JSON, pero la web nos facilita una forma gráfica de añadir slots e intents, por lo que no era necesario que dominásemos el lenguaje. En cuanto al front-end, existen 3 formas de realizarlo, a partir de un Node.js, con Python y por último custom y desde cero. El tutorial que mencionamos antes(4) lo realizaba con este último método, pero la parte de conexión con Alexa también corría por parte del propio desarrollador, así que investigamos si podría existir la forma de realizarlo con Node.js y parser Prolog a JavaScript.
-
-<p align="center">
-<img src="imagenes/CreacionSkill.jpg" width="800">
-
-Encontramos una lista de unos tutoriales muy recomendables para entender el funcionamiento de esto(8) además de una masterclass del mismo autor(3).
-
-Llegamos a la misma conclusión, ¿Cómo podemos hacer una conexión desde nuestra API de Prolog en nuestro dispositivo, hasta Alexa? por desgracia no encontramos una respuesta, así que pensamos una alternativa en HTML y encontramos otra lista de reproducción, donde se podía ver el proceso para realizar esto(9). Pero nos ocurrió el mismo problema, no conocemos una forma de crear un dominio y hacerlo funcionar.
-
-Buscamos otra alternativa, PHP, donde encontramos un video un tipo muy simpático, que explicaba cómo realizar un juego de ajedrez, solo con peones, implementado en prolog, pero manejado desde una web escrita en PHP, un video bastante ilustrativo y con un enlace a su repositorio. Pero nos surgía el mismo problema de siempre, algo hacíamos mal a la hora de crear el dominio.
-En un último intento, decidimos traducir el sistema experto de Prolog a JS o Python, para usar los métodos que hacen uso del dominio de la propia Amazon, que nos cede un espacio de 5Gb en su nube para el desarrollo de cualquier skill, como aún no teníamos conocimientos en estos lenguajes, buscamos ejemplos de alguna skill ya creada que fuese similar y encontramos un juego de Quiz, que en cierta forma se asemejaba a lo que buscábamos, pero justamente en lo que se diferenciaba era en la esencia del sistema experto, esta skill eran preguntas totalmente aleatorias. Llegamos a un punto en el que decidimos que lo que íbamos a hacer iba mucho más allá de los requisitos que se pedían en este proyecto.
-
-Ya que cumplíamos con los requisitos necesarios para superar el proyecto, dejamos aparcada la idea de dar un paso más y llevarlo hasta Alexa, por la elevada saturación de carga de trabajo que estamos sufriendo en este 2020.
-No sabemos si retomaremos este proyecto, pero hemos querido compartir nuestro desarrollo y experiencia y dejar en la comunidad un camino por el cual quien quisiera realizar algo similar pudiera tomar como referencia. Hemos dejado constancia de repositorios, videos y webs donde poder informarse.
-
-## Implementación Alexa
-¿Algún día...?
 
 ## Bibliografía
 [1. Temario Modelos Avanzados de Computación](http://www.uhu.es/francisco.moreno/gii_mac/)  
