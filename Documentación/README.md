@@ -282,3 +282,4 @@ Junto al código fuente se incluyen las gramáticas y cadenas de entrada utiliza
 ## Bibliografía
 [1. Temario Modelos Avanzados de Computación de Francisco José Moreno Velo](http://www.uhu.es/francisco.moreno/gii_mac/)  
 [2. Programación Declarativa de José Carpio Cañada](http://www.uhu.es/jose.carpio/N_95.pdf)  
+[3. Haskell Documentation](https://www.haskell.org/documentation/)  
