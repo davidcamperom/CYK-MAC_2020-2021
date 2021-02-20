@@ -281,4 +281,4 @@ Junto al código fuente se incluyen las gramáticas y cadenas de entrada utiliza
 
 ## Bibliografía
 [1. Temario Modelos Avanzados de Computación](http://www.uhu.es/francisco.moreno/gii_mac/)  
-
+[2. Programación Declarativa](http://www.uhu.es/jose.carpio/N_95.pdf)  
