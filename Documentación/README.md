@@ -280,5 +280,5 @@ Gramática: Ficheros usados: Gramática.cfg y Entrada.txt
 Junto al código fuente se incluyen las gramáticas y cadenas de entrada utilizadas en los ejemplos, junto a otras gramáticas.
 
 ## Bibliografía
-[1. Temario Modelos Avanzados de Computación](http://www.uhu.es/francisco.moreno/gii_mac/)  
-[2. Programación Declarativa](http://www.uhu.es/jose.carpio/N_95.pdf)  
+[1. Temario Modelos Avanzados de Computación de Francisco José Moreno Velo](http://www.uhu.es/francisco.moreno/gii_mac/)  
+[2. Programación Declarativa de José Carpio Cañada](http://www.uhu.es/jose.carpio/N_95.pdf)  
