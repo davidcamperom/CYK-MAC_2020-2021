@@ -1,0 +1,7 @@
+<lparen>
+<id>
+<plus>
+<id>
+<prod>
+<id>
+<rparen>
