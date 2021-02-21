@@ -251,28 +251,28 @@ Gramática: Ficheros usados: Gramática.cfg y Entrada.txt
 
 ### Ejemplo 2
 
-Gramática: Ficheros usados: Gramática.cfg y Entrada.txt
+Gramática: Ficheros usados: G2.cfg y E2.txt
 
 <img src="images/gramatica_ejercicio_2.PNG" width="500">
 <img src="images/resultados_ejercicio_2.PNG" width="500">
 
 ### Ejemplo 3
 
-Gramática: Ficheros usados: Gramática.cfg y Entrada.txt
+Gramática: Ficheros usados: G4.cfg y E4.txt
 
 <img src="images/gramatica_ejercicio_3.PNG" width="500">
 <img src="images/resultados_ejercicio_3.PNG" width="500">
 
 ### Ejemplo 4
 
-Gramática: Ficheros usados: Gramática.cfg y Entrada.txt
+Gramática: Ficheros usados: G5.cfg y E5.txt
 
 <img src="images/gramatica_ejercicio_4.PNG" width="500">
 <img src="images/resultados_ejercicio_4.PNG" width="500">
 
 ### Ejemplo 5
 
-Gramática: Ficheros usados: Gramática.cfg y Entrada.txt
+Gramática: Ficheros usados: G2.cfg y E22.txt
 
 <img src="images/gramatica_ejercicio_5.PNG" width="500">
 <img src="images/resultados_ejercicio_5.PNG" width="500">
