@@ -242,6 +242,12 @@ A continuación, se mostrará una serie de pruebas de ejecución realizadas con 
 
 Las visualizaciones de las tablas obtenidas han sido recortadas.
 
+### Ejercicio Examen Modelos Avanzados de Computación 2021
+
+Gramática: Ficheros usados: GramáticaExamen.cfg y EntradaExamen.txt
+
+= IMÁGENES DEL PROGRAMA CON LA GRAMÁTICA Y EL RESULTADO =
+
 ### Ejemplo 1
 
 Gramática: Ficheros usados: Gramática.cfg y Entrada.txt
