@@ -246,7 +246,8 @@ Las visualizaciones de las tablas obtenidas han sido recortadas.
 
 Gramática: Ficheros usados: GramáticaExamen.cfg y EntradaExamen.txt
 
-= IMÁGENES DEL PROGRAMA CON LA GRAMÁTICA Y EL RESULTADO =
+<img src="https://github.com/alexbm98/CYK-MAC_2020-2021/blob/main/Documentaci%C3%B3n/images/EjercicioExamenMAC2021.png" width="500">
+= FALTA IMAGEN RESULTADO EN EL PROGRAMA  =
 
 ### Ejemplo 1
 
