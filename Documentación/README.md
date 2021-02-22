@@ -249,6 +249,8 @@ Gramática: Ficheros usados: GramáticaExamen.cfg y EntradaExamen.txt
 <img src="https://github.com/alexbm98/CYK-MAC_2020-2021/blob/main/Documentaci%C3%B3n/images/EjercicioExamenMAC2021.png" width="500">
 <img src="images/resultados_ejercicio_examen.PNG" width="500">
 
+En el enunciado hay un error. La gramática rparen, es con R, no con L. Este error fue aclarado el día del examen
+
 ### Ejemplo 1
 
 Gramática: Ficheros usados: Gramática.cfg y Entrada.txt
